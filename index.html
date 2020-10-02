@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Тег IFRAME</title>
+ </head>
+ <body>  
+
+ <iframe src="map.html" width="600" height="400" align="left" name="map">
+    Ваш браузер не поддерживает плавающие фреймы!
+ </iframe>
+ 
+ <script>
+ function toMove(){
+   let win = window.frames.map;
+  win.postMessage({call:'sendValue', value: 1});
+ }
+</script>
+<form action="">
+   <p><input type="button" value="Переместить" onclick="toMove()"></p>
+  </form>
+ </body>
+</html>

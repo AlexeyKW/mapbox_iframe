@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='ru'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+
+<body>
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGV5bnRrIiwiYSI6ImNrZTVveWpsaDE1Mzkycm1zeGc1NXBvcWsifQ.aEVQIVJiLc9JvmdkAFUsEQ';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+  });
+</script>
+
+<script>
+window.addEventListener('message', function(event) {
+    var origin = event.origin;
+    if (event.data.call=='sendValue') {
+        //alert(event.data.value);
+        map.flyTo({center: [82.8629153,54.9867322],zoom: 16,
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+    }
+}, false);
+</script>
+
+</body>
+
+</html>
